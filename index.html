@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Before Tax - Calculate Original Prices Instantly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #5856D6 0%, #AF52DE 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 60px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .header .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: white;
+            color: #5856D6;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .how-it-works {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 60px;
+        }
+
+        .how-it-works h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .example {
+            background: linear-gradient(135deg, rgba(88, 86, 214, 0.1) 0%, rgba(175, 82, 222, 0.1) 100%);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .example-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .example-row:last-child {
+            border-bottom: none;
+        }
+
+        .example-row.result {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #34C759;
+        }
+
+        .example-label {
+            color: #666;
+        }
+
+        .example-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .privacy-section {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .privacy-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .privacy-section p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .privacy-link {
+            color: #5856D6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .privacy-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #5856D6;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 50px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .tagline {
+                font-size: 1.1rem;
+            }
+
+            .app-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+            }
+
+            .how-it-works {
+                padding: 30px 20px;
+            }
+
+            .example {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="app-icon">💰</div>
+            <h1>Price Before Tax</h1>
+            <p class="tagline">Calculate the original price before tax was added — instantly.</p>
+            <a href="#" class="download-btn">Download on the App Store</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Calculations</h3>
+                <p>Get results as you type. No buttons to press, no waiting — just fast, accurate calculations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3>Save Tax Rates</h3>
+                <p>Save your frequently used tax rates with custom names. Switch between them with a single tap.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Copy Results</h3>
+                <p>Copy the calculated price to your clipboard instantly. Perfect for invoices and reports.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>100% Private</h3>
+                <p>All calculations happen on your device. No data is ever collected or sent anywhere.</p>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <h2>How It Works</h2>
+            <p style="color: #666; margin-bottom: 30px;">Enter the total price you paid and the tax rate — we'll show you the original price.</p>
+            <div class="example">
+                <div class="example-row">
+                    <span class="example-label">Final Price (with tax)</span>
+                    <span class="example-value">$250.00</span>
+                </div>
+                <div class="example-row">
+                    <span class="example-label">Tax Rate</span>
+                    <span class="example-value">10.5%</span>
+                </div>
+                <div class="example-row result">
+                    <span class="example-label">Original Price</span>
+                    <span class="example-value" style="color: #34C759;">$226.24</span>
+                </div>
+                <div class="example-row">
+                    <span class="example-label">Tax Amount</span>
+                    <span class="example-value">$23.76</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="privacy-section">
+            <h2>🔒 Your Privacy Matters</h2>
+            <p>We believe in complete transparency. Price Before Tax doesn't collect any personal data — ever. All calculations happen locally on your device.</p>
+            <p style="margin-top: 15px;">
+                <a href="privacy.html" class="privacy-link">Privacy Policy</a> · 
+                <a href="terms.html" class="privacy-link">Terms of Use</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Price Before Tax. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="support.html">Support</a>
+        </div>
+    </footer>
+</body>
+</html>
