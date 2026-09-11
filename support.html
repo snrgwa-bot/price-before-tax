@@ -185,7 +185,23 @@
                 margin-bottom: 12px;
             }
         }
-    </style>
+    
+        /* Large displays: scale the root font size and widen the header block
+           a little so the page does not read as a narrow column adrift in
+           empty space on a 2560px monitor. The body copy keeps a deliberately
+           narrow measure — long legal text at full width is worse than the
+           original problem. */
+        @media (min-width: 1500px) {
+            :root { font-size: 17.5px; }
+            .header-content { max-width: 900px; }
+            .container { max-width: 860px; }
+        }
+        @media (min-width: 2000px) {
+            :root { font-size: 19px; }
+            .header-content { max-width: 960px; }
+            .container { max-width: 900px; }
+        }
+</style>
 </head>
 <body>
     <header class="header">

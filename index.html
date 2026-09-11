@@ -244,7 +244,28 @@
                 padding: 20px;
             }
         }
-    </style>
+    
+        /* Large displays: the shell was pinned at 1000px, which on a 2560px
+           monitor reads as a narrow column adrift in empty space. Widen the
+           shell AND scale the root font size, so type, spacing and the app
+           icon grow together — widening alone just stretches the gaps. The
+           header copy and the worked example keep their own narrower measure,
+           so line length stays readable however wide the window gets. */
+        @media (min-width: 1500px) {
+            :root { font-size: 17.5px; }
+            .container { max-width: 1280px; }
+            .header-content { max-width: 900px; }
+            .example { max-width: 580px; }
+            .app-icon { width: 150px; height: 150px; }
+        }
+        @media (min-width: 2000px) {
+            :root { font-size: 19px; }
+            .container { max-width: 1500px; }
+            .header-content { max-width: 960px; }
+            .example { max-width: 640px; }
+            .app-icon { width: 170px; height: 170px; }
+        }
+</style>
 </head>
 <body>
     <header class="header">
