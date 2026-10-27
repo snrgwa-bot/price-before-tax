@@ -208,15 +208,15 @@
 
     <main class="container">
         <div class="card">
-            <p class="last-updated">Last updated: July 13, 2026</p>
+            <p class="last-updated">Last updated: October 26, 2026</p>
 
             <div class="highlight-box">
-                <p>🔒 Your privacy is important to us. Price Before Tax is designed with privacy in mind — we don't collect, store, or share any of your personal data ourselves. The free version shows ads served by Google AdMob, described below.</p>
+                <p>🔒 Your privacy is important to us. Price Before Tax is designed with privacy in mind — we never collect your name, email, location or anything you enter. If you allow it, the app sends anonymous usage statistics to our own server (you can turn this off in Settings). The free version shows ads served by Google AdMob, described below.</p>
             </div>
 
             <div class="section">
                 <h2>Information We Collect</h2>
-                <p>Price Before Tax does <strong>not</strong> collect, store, or transmit any personal information itself. All calculations are performed locally on your device. We have no servers that receive your data, and we have no way to access any information you enter into the app. Our advertising partner may collect limited data to serve ads, as described in the Advertising section below.</p>
+                <p>Price Before Tax does <strong>not</strong> collect any personal information. All calculations are performed locally on your device, and we have no way to access the prices, rates or names you enter into the app. The app may send anonymous usage statistics, described below, and our advertising partner may collect limited data to serve ads, as described in the Advertising section.</p>
             </div>
 
             <div class="section">
@@ -231,8 +231,24 @@
             </div>
 
             <div class="section">
-                <h2>Analytics & Tracking</h2>
-                <p>We do <strong>not</strong> use any analytics SDK or tracking of our own. We don't know how often you use the app, what calculations you perform, or any other usage data. The only third-party data collection in the app comes from our advertising partner, described below.</p>
+                <h2>Anonymous usage statistics</h2>
+                <p>To learn which features help people and to find crashes, Price Before Tax sends anonymous usage statistics to our own server (hosted on Supabase). This is our own first-party system — no third-party analytics SDK is involved, and it is never used for tracking or advertising. The app identifies itself only with a random installation ID that is created on your device and is deleted together with the app.</p>
+                <p><strong>What is sent:</strong></p>
+                <ul>
+                    <li>Device model, iOS version and app version</li>
+                    <li>Language, region and time zone</li>
+                    <li>Accessibility settings (such as larger text or reduced motion)</li>
+                    <li>Session start and end, and the last screen you were on</li>
+                    <li>App events, such as “a calculation was completed”, “a result was copied” or “a rate was saved”, with the calculator mode (Before Tax, After Tax, Discount) and a rough tax-rate range — never the prices, amounts or exact rates you enter</li>
+                    <li>Remove Ads screen views and which option was tapped</li>
+                    <li>Purchase, renewal-status and restore events (the product and plan length only)</li>
+                    <li>Review-prompt requests</li>
+                    <li>Crash and performance reports from Apple’s MetricKit</li>
+                </ul>
+                <p><strong>What is never sent:</strong> your name, email, phone number or address; your location; the advertising identifier (IDFA) or vendor identifier (IDFV); prices paid, receipts or transaction IDs; and anything you type — prices, rates, saved rate names or your calculation history. Your IP address is not stored or used.</p>
+                <p><strong>Retention:</strong> usage statistics are kept for 13 months (crash and performance diagnostics for 6 months), then deleted.</p>
+                <p><strong>Turn it off:</strong> Settings → Privacy → Share Usage Data. When off, nothing is collected or sent, and anything not yet sent is deleted from your device.</p>
+                <p><strong>Delete it:</strong> copy your Installation ID from Settings → Privacy and email it to <a href="mailto:essentialdevteam@gmail.com">essentialdevteam@gmail.com</a>; we will delete everything linked to it.</p>
             </div>
 
             <div class="section">
@@ -250,9 +266,9 @@
 
             <div class="section">
                 <h2>Third-Party Services</h2>
-                <p>Other than Google AdMob (for advertising) and Apple's App Store (for in-app purchases), this app does not integrate with any third-party services that could collect your data. There are no:</p>
+                <p>Other than Google AdMob (for advertising) and Apple's App Store (for in-app purchases), this app does not integrate with any third-party services that could collect your data. Our anonymous usage statistics (above) are our own, first-party system. There are no:</p>
                 <ul class="features-list">
-                    <li>Analytics SDKs</li>
+                    <li>Third-party analytics SDKs</li>
                     <li>Social media integrations</li>
                     <li>User accounts or logins</li>
                 </ul>
@@ -260,12 +276,12 @@
 
             <div class="section">
                 <h2>Children's Privacy</h2>
-                <p>Our app does not collect personal information from anyone, including children under the age of 13. All calculations happen on your device and we store no personal data. The app is not directed at children under 13; the free version contains third-party advertising as described above.</p>
+                <p>Our app does not collect personal information from anyone, including children under the age of 13. All calculations happen on your device; the only data we receive is the anonymous usage statistics described above. The app is not directed at children under 13; the free version contains third-party advertising as described above.</p>
             </div>
 
             <div class="section">
                 <h2>Data Security</h2>
-                <p>Since all data remains on your device and is never transmitted, your information benefits from the security measures built into iOS, including device encryption and secure storage.</p>
+                <p>Your prices, rates and calculation history remain on your device and benefit from the security measures built into iOS, including device encryption and secure storage. Anonymous usage statistics are sent over an encrypted (HTTPS) connection.</p>
             </div>
 
             <div class="section">
